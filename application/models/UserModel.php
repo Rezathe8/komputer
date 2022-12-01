@@ -8,9 +8,9 @@ class UserModel extends CI_Model
         $this->db->insert('user', $data);
     }
 
-    public function cekData()
+    public function cekData($where = null)
     {
-        return $this->db->get('user');
+        return $this->db->get('user', $where);
     }
 
     public function getUserWhere($where = null)

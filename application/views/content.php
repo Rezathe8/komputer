@@ -1,7 +1,7 @@
 <main id="main" class="main">
 
     <div class="row">
-        <div class="col-lg-6 justify-content-x">
+        <div class="col-xl-12">
             <?= $this->session->flashdata('pesan'); ?>
         </div>
     </div>
