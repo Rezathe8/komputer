@@ -14,7 +14,7 @@ class Member extends CI_Controller
 
     private function _login()
     {
-        $username = $this->input->post('username', true);
+        $username = htmlspecialchars($this->input->post('username', true));
         $password = $this->input->post('password', true);
 
         $user = $this->UserModel->cekData(['username' => $username])->row_array();
@@ -25,14 +25,15 @@ class Member extends CI_Controller
             if ($user['is_active'] == 1) {
                 //cek password
                 if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'image' => $user['image'],
-                        'username' => $user['username'],
-                        'role_id' => $user['role_id'],
-                        'id_user' => $user['id_user'],
-                        'nama' => $user['nama'],
-                    ];
-
+                    foreach ($user as $a) {
+                        $data = [
+                            'image' => $user['image'],
+                            'username' => $user['username'],
+                            'role_id' => $user['role_id'],
+                            'id' => $user['id'],
+                            'nama' => $user['nama'],
+                        ];
+                    }
                     $this->session->set_userdata($data);
                     redirect('home');
                 } else {

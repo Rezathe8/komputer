@@ -6,9 +6,11 @@
         <li class="nav-item">
             <a class="nav-link " href="<?= base_url(); ?>">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                <span>Dashboard Admin</span>
             </a>
         </li><!-- End Dashboard Nav -->
+
+        <li class="nav-heading">Master Data</li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -184,7 +186,7 @@
             </ul>
         </li><!-- End Icons Nav -->
 
-        <!--- <li class="nav-heading">Pages</li> --->
+        <li class="nav-heading">Pages</li>
 
     </ul>
 

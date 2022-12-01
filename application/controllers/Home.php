@@ -10,22 +10,31 @@ class Home extends CI_Controller
 
     public function index()
     {
+        $user = $this->UserModel->cekData(['username' => $this->session->userdata('username')])->row_array();
 
         $data = [
             'judul' => "Dashboard",
-
+            'image' => $user['image'],
         ];
 
         if ($this->session->userdata('username')) {
             $user = $this->UserModel->cekData(['username' => $this->session->userdata('username')])->row_array();
 
             $data['user'] = $user['username'];
+            if ($this->session->userdata('role_id') == 1) {
 
-            $this->load->view('templates/templates-user/header', $data);
-            $this->load->view('content');
-            $this->load->view('templates/sidebar');
-            $this->load->view('templates/templates-user/modal');
-            $this->load->view('templates/footer');
+                $this->load->view('templates/templates-user/header', $data);
+                $this->load->view('content');
+                $this->load->view('templates/admin/sidebar');
+                $this->load->view('templates/templates-user/modal');
+                $this->load->view('templates/footer');
+            } else {
+                $this->load->view('templates/templates-user/header', $data);
+                $this->load->view('content');
+                $this->load->view('templates/sidebar');
+                $this->load->view('templates/templates-user/modal');
+                $this->load->view('templates/footer');
+            }
         } else {
             $data['user'] = 'Guest';
 
