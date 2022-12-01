@@ -87,13 +87,23 @@ class Member extends CI_Controller
                 'name' => $user['nama'],
                 'alamat' => $user['alamat'],
                 'hp' => $user['hp'],
+                'role_id' => $user['role_id'],
             ];
         }
-        $this->load->view('templates/templates-user/header', $data);
-        $this->load->view('member/index', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/templates-user/modal');
-        $this->load->view('templates/footer', $data);
+
+        if ($this->session->userdata('role_id') == 1) {
+            $this->load->view('templates/templates-user/header', $data);
+            $this->load->view('member/index', $data);
+            $this->load->view('templates/admin/sidebar');
+            $this->load->view('templates/templates-user/modal');
+            $this->load->view('templates/footer', $data);
+        } else {
+            $this->load->view('templates/templates-user/header', $data);
+            $this->load->view('member/index', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/templates-user/modal');
+            $this->load->view('templates/footer', $data);
+        }
     }
 
     public function ubahProfil()
@@ -112,12 +122,13 @@ class Member extends CI_Controller
             ];
         }
 
+        $username = $this->session->userdata('username');
         $nama = $this->input->post('name', true);
         $alamat = $this->input->post('alamat', true);
         $hp = $this->input->post('hp', true);
         $email = $this->input->post('email', true);
         //jika ada gambar yang akan diupload
-        /*$upload_image = $_FILES['image']['name'];
+        $upload_image = $_FILES['image']['name'];
         if ($upload_image) {
             $config['upload_path'] = './assets/img/';
             $config['allowed_types'] = 'gif|jpg|png';
@@ -134,11 +145,12 @@ class Member extends CI_Controller
                 $gambar_baru = $this->upload->data('file_name');
                 $this->db->set('image', $gambar_baru);
             }
-        }*/
+        }
         $this->db->set('nama', $nama);
         $this->db->set('alamat', $alamat);
         $this->db->set('hp', $hp);
         $this->db->set('email', $email);
+        $this->db->where('username', $username);
         $this->db->update('user');
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Profil Berhasil diubah </div>');
         redirect('member/myprofil');

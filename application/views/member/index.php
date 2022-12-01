@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                        <img src="<?= base_url('assets/'); ?>img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="<?= base_url('assets/img/') . $image; ?>" alt="Profile" class="rounded-circle">
                         <h2><?= $user; ?></h2>
                         <h3>Role</h3>
                         <!--- <div class="social-links mt-2">
