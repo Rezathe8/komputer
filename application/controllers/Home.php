@@ -29,7 +29,7 @@ class Home extends CI_Controller
         } else {
             $data['user'] = 'Guest';
 
-            $this->load->view('templates/templates-user/header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('content');
             $this->load->view('templates/sidebar');
             $this->load->view('templates/templates-user/modal');
