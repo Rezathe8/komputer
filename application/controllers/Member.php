@@ -76,11 +76,12 @@ class Member extends CI_Controller
 
     public function myProfil()
     {
-        $data['judul'] = 'Profil Saya';
+
         $user = $this->UserModel->cekData(['username' => $this->session->userdata('username')])->row_array();
 
         foreach ($user as $a) {
             $data = [
+                'judul' => "Profil Saya",
                 'image' => $user['image'],
                 'user' => $user['username'],
                 'email' => $user['email'],
@@ -108,11 +109,12 @@ class Member extends CI_Controller
 
     public function ubahProfil()
     {
-        $data['judul'] = 'Profil Saya';
+
         $user = $this->UserModel->cekData(['username' => $this->session->userdata('username')])->row_array();
 
         foreach ($user as $a) {
             $data = [
+                'judul' => "Profil Saya",
                 'image' => $user['image'],
                 'username' => $user['username'],
                 'email' => $user['email'],
