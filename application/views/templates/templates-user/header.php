@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title><?= $judul; ?> | Ram-Komputer</title>
+    <title> <?= $judul ?> | Ram-Komputer</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -77,13 +77,13 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="<?= base_url('assets/img/') . $image; ?>" alt="Profile" class="rounded-circle">
+                        <img src="<?= base_url('assets/img/') . $image ?>" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2"> <?= $user; ?> </span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><?= $user; ?></h6>
+                            <h6><?= $user ?></h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">

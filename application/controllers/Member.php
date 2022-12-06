@@ -135,25 +135,27 @@ class Member extends CI_Controller
             $config['upload_path'] = './assets/img/';
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '3000';
-            $config['max_width'] = '1024';
-            $config['max_height'] = '1000';
+            //$config['max_width'] = '1024';
+            #$config['max_height'] = '1000';
             $config['file_name'] = 'pro' . time();
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('image')) {
                 $gambar_lama = $data['user']['image'];
                 if ($gambar_lama != 'default.jpg') {
-                    unlink(FCPATH . 'assets/img/profile/' . $gambar_lama);
+                    unlink(FCPATH . 'assets/img/' . $gambar_lama);
                 }
                 $gambar_baru = $this->upload->data('file_name');
-                $this->db->set('image', $gambar_baru);
             }
         }
-        $this->db->set('nama', $nama);
-        $this->db->set('alamat', $alamat);
-        $this->db->set('hp', $hp);
-        $this->db->set('email', $email);
+        $data = [
+            'nama' => $nama,
+            'alamat' => $alamat,
+            'hp' => $hp,
+            'email' => $email,
+            'image' => $gambar_baru
+        ];
         $this->db->where('username', $username);
-        $this->db->update('user');
+        $this->db->update('user', $data);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Profil Berhasil diubah </div>');
         redirect('member/myprofil');
     }
