@@ -30,7 +30,7 @@
                                     <h6>opsi</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Cetak</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() . 'booking/exportToPdf/' . $this->session->userdata('id_user'); ?>"">Cetak</a></li>
                                 <li><a class="dropdown-item" href="#">Hapus</a></li>
                             </ul>
                         </div>
