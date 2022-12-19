@@ -8,10 +8,10 @@
 
 
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Rakitan</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="#">Rakitan</a></li>
                 <li class="breadcrumb-item active">Rakitan Saya</li>
             </ol>
         </nav>
@@ -30,7 +30,7 @@
                                     <h6>opsi</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="<?php echo base_url() . 'booking/exportToPdf/' . $this->session->userdata('id_user'); ?>"">Cetak</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() . 'pesanan/exportToPdf/' . $this->session->userdata('id_user'); ?>"">Cetak</a></li>
                                 <li><a class="dropdown-item" href="#">Hapus</a></li>
                             </ul>
                         </div>

@@ -34,7 +34,7 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= base_url('home/rakitan'); ?>">
+                    <a href="<?= base_url('Pesanan/rakitan'); ?>">
                         <i class="bi bi-circle"></i><span>Rakitan Saya</span>
                     </a>
                 </li>

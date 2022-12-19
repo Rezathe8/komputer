@@ -54,20 +54,5 @@ class Home extends CI_Controller
         }
     }
 
-    public function rakitan()
-    {
-        $user = $this->UserModel->cekData(['username' => $this->session->userdata('username')])->row_array();
-
-        $data = [
-            'user' => 'Guest',
-            'judul' => 'Rakitan Saya',
-            'image' => "default.jpg"
-        ];
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('rakitan/rakitan');
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/templates-user/modal');
-        $this->load->view('templates/footer');
-    }
+   
 }
