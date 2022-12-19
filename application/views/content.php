@@ -77,18 +77,14 @@
             <div class="col-lg-12">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h5 class="card-title">Pilihan Kompabilitas</h5>
-
+                        <h5 class="card-title">Pilihan Tipe</h5>
                         <nav>
                             <ol class="breadcrumb">
-                                <div class="col-7 col-md-6 col-sm-6 pe-2"><label for="mode">Pilih Mode</label>
-                                    <select name="mode" id="mode" data-placeholder="Pilih">
-                                        <option value="advance">Advance - <div class="h3 option" data-selectable="" data-value="0">Tanpa Kompatibilitas<small class="d-block text-muted mt-2">Simulasi tanpa pengecekan kompatibilitas.</small></div>
-                                        </option>
-                                        <option value="basic">Basic - <div class="h3 option selected" data-selectable="" data-value="1">Dengan Kompatibilitas<small class="d-block text-muted mt-2">Simulasi dengan pengecekan kompatibilitas antara Processor dengan Motherboard berdasarkan Tipe Socket.</small></div>
-                                        </option>
-                                    </select>
-                                </div>
+                                <label for="prosesor">Pilih Tipe</label>
+                                <select name="prosesor" id="prosesor">
+                                    <option value="advance">Intel</option>
+                                    <option value="basic">AMD</option>
+                                </select>
                             </ol>
                         </nav>
 
